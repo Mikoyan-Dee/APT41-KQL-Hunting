@@ -1,8 +1,8 @@
 # APT41-KQL-Hunting
 This repository contains KQL (Kusto Query Language) threat hunting rules designed to detect APT41 campaign artifacts based on historical TTPs (Tactics, Techniques, and Procedures).
 
-##Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder - T1547.001
-This is Not a Test campaign/the ColunmTK campaign/MoonBounce Malware
+## This is Not a Test campaign/the ColunmTK campaign/MoonBounce Malware
+Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder - T1547.001
 ```
 DeviceRegistryEvents
 | where ActionType == "RegistryValueSet"
@@ -19,8 +19,9 @@ DeviceRegistryEvents
 
 ```
 
-##Scheduled Task/Job: Scheduled Task - T1053.005
-DEADEYE Malware
+## DEADEYE Malware
+Scheduled Task/Job: Scheduled Task - T1053.005
+
 ```
 DeviceProcessEvents
 | where ProcessCommandLine has "SCHTASKS" and ProcessCommandLine has "rundll32.exe" and ProcessCommandLine has "SHELL32.DLL" and ProcessCommandLine has "ShellExec_RunDLL" 
@@ -34,16 +35,16 @@ DeviceProcessEvents
 
 ```
 
-##Hijack Execution Flow: Dynamic Linker Hijacking - T1574.006
-load arbitrary code into processes
+## load arbitrary code into processes
+Hijack Execution Flow: Dynamic Linker Hijacking - T1574.006
 ```
 Syslog
 | where SyslogMessage contains "/etc/ld.so.preload" and SyslogMessage contains "libsshd.so"
 
 ````
 
-##Lateral Tool Transfer - 1570
-PipeMon Malware
+## PipeMon Malware
+Lateral Tool Transfer - 1570
 ```
 let badPipeNames = pack_array(                         
       '\\CMDPipeRead',                                     
