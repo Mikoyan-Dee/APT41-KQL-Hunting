@@ -36,7 +36,7 @@ DeviceProcessEvents
 
 ```
 
-## Winnti implant
+## Winnti Implant
 Hijack Execution Flow: Dynamic Linker Hijacking - T1574.006
 ```
 Syslog
