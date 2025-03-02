@@ -8,7 +8,8 @@ DeviceRegistryEvents
 | where ActionType == "RegistryValueSet"
 | where RegistryKey contains @"\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Svchost"
 | where RegistryValueName has_any ("StorSyncSvc", "COMSysConfig", "iscsiwmi")
-
+```
+```
 DeviceRegistryEvents
 | where ActionType == "RegistryValueSet"
 | where RegistryKey contains @"\SYSTEM\CurrentControlSet\Services\COMSysConfig\Parameters" or
@@ -35,7 +36,7 @@ DeviceProcessEvents
 
 ```
 
-## load arbitrary code into processes
+## Winnti implant
 Hijack Execution Flow: Dynamic Linker Hijacking - T1574.006
 ```
 Syslog
